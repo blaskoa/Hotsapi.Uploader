@@ -136,7 +136,7 @@ namespace Hotsapi.Uploader.Windows
 
         public void ApplyTheme(string theme)
         {
-            // we will need a separate resource dictionary for themes 
+            // we will need a separate resource dictionary for themes
             // if we intend to store someting else in App resource dictionary
             Resources.MergedDictionaries.Clear();
             Themes.TryGetValue(theme, out string resource);
@@ -225,12 +225,12 @@ namespace Hotsapi.Uploader.Windows
                     Settings.Upgrade();
 
                     if (string.IsNullOrEmpty(Settings.ApplicationVersion)) { // < v1.7
-                        var reg = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion").OpenSubKey(@"Run");
+                        /*var reg = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion").OpenSubKey(@"Run");
                         if (reg.OpenSubKey(@"Run").GetValue("Hotsapi") != null) {
                             reg.OpenSubKey(@"Run", true).DeleteValue("Hotsapi", false);
-                            
+
                             DummyUpdateManager.CreateShortcutsForExecutable(App.AppFile, ShortcutLocation.Startup, false, "--autorun");
-                        }
+                        }*/
                     } else {
                         var previous = Version.Parse(Settings.ApplicationVersion);
 
