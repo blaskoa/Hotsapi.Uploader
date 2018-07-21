@@ -33,7 +33,7 @@ namespace Hotsapi.Uploader.Common
         /// Upload replay
         /// </summary>
         /// <param name="file"></param>
-        public async Task Upload(ReplayFile file)
+        public virtual async Task Upload(ReplayFile file)
         {
             file.UploadStatus = UploadStatus.InProgress;
             if (file.Fingerprint != null && await CheckDuplicate(file.Fingerprint)) {
@@ -49,7 +49,7 @@ namespace Hotsapi.Uploader.Common
         /// </summary>
         /// <param name="file">Path to file</param>
         /// <returns>Upload result</returns>
-        public async Task<UploadStatus> Upload(string file)
+        private async Task<UploadStatus> Upload(string file)
         {
             try {
                 string response;
@@ -84,7 +84,7 @@ namespace Hotsapi.Uploader.Common
         /// Check replay fingerprint against database to detect duplicate
         /// </summary>
         /// <param name="fingerprint"></param>
-        public async Task<bool> CheckDuplicate(string fingerprint)
+        private async Task<bool> CheckDuplicate(string fingerprint)
         {
             try {
                 string response;
@@ -107,7 +107,7 @@ namespace Hotsapi.Uploader.Common
         /// Mass check replay fingerprints against database to detect duplicates
         /// </summary>
         /// <param name="fingerprints"></param>
-        public async Task<string[]> CheckDuplicate(IEnumerable<string> fingerprints)
+        private async Task<string[]> CheckDuplicate(IEnumerable<string> fingerprints)
         {
             try {
                 string response;
@@ -129,7 +129,7 @@ namespace Hotsapi.Uploader.Common
         /// <summary>
         /// Mass check replay fingerprints against database to detect duplicates
         /// </summary>
-        public async Task CheckDuplicate(IEnumerable<ReplayFile> replays)
+        private async Task CheckDuplicate(IEnumerable<ReplayFile> replays)
         {
             var exists = new HashSet<string>(await CheckDuplicate(replays.Select(x => x.Fingerprint)));
             replays.Where(x => exists.Contains(x.Fingerprint)).Map(x => x.UploadStatus = UploadStatus.Duplicate);
@@ -138,7 +138,7 @@ namespace Hotsapi.Uploader.Common
         /// <summary>
         /// Get minimum HotS client build supported by HotsApi
         /// </summary>
-        public async Task<int> GetMinimumBuild()
+        public virtual async Task<int> GetMinimumBuild()
         {
             try {
                 using (var client = new WebClient()) {

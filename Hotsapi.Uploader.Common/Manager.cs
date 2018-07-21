@@ -97,7 +97,7 @@ namespace Hotsapi.Uploader.Common
             }
             _initialized = true;
 
-            _uploader = new Uploader();
+            _uploader = new FakeUploader();
             _analyzer = new Analyzer();
             _monitor = new Monitor();
 
