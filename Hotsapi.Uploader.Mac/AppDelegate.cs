@@ -15,24 +15,27 @@ namespace Hotsapi.Uploader.Mac
             set;
         }
 
+        public Settings Settings
+        {
+            get;
+            set;
+        }
+
         public static string SettingsDir { get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Hotsapi"); } }
 
         public AppDelegate()
         {
             Manager = new Manager(new ReplayStorage(Path.Combine(SettingsDir, "replays.xml")));
             // Enable collection modification from any thread
-
-            Manager.UploadToHotslogs = false;
-            Manager.DeleteAfterUpload = DeleteFiles.None;
-
+            Settings = new Settings(NSUserDefaults.StandardUserDefaults);
+            Manager.UploadToHotslogs = Settings.UploadToHotsLogs;
+            Manager.DeleteAfterUpload = Settings.DeleteAfterUpload;
         }
         public override void DidFinishLaunching(NSNotification notification)
         {
             // Insert code here to initialize your application
 
         }
-
-
 
         public override void WillTerminate(NSNotification notification)
         {

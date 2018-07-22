@@ -4,13 +4,149 @@ using System;
 
 using Foundation;
 using AppKit;
+using Hotsapi.Uploader.Common;
 
 namespace Hotsapi.Uploader.Mac
 {
 	public partial class SettingsController : NSViewController
 	{
+        public AppDelegate App => (AppDelegate)NSApplication.SharedApplication.Delegate;
+
+        private Settings _settings;
+
 		public SettingsController (IntPtr handle) : base (handle)
 		{
 		}
-	}
+
+        public override void ViewDidLoad()
+        {
+            _settings = App.Settings;
+            InitializeFromSettings();
+        }
+
+        public override NSObject RepresentedObject
+        {
+            get
+            {
+                return base.RepresentedObject;
+            }
+            set
+            {
+                base.RepresentedObject = value;
+                // Update the view, if already loaded.
+            }
+        }
+
+        private void InitializeFromSettings() 
+        {
+            UploadToHotsLogsCheckBox.State = _settings.UploadToHotsLogs ? NSCellStateValue.On : NSCellStateValue.Off;
+            MinimizeToTrayCheckBox.State = _settings.MinimizeToTray ? NSCellStateValue.On : NSCellStateValue.Off;
+            StartWithMacCheckBox.State = _settings.StartWithSystem ? NSCellStateValue.On : NSCellStateValue.Off;
+
+            DeleteAiCheckBox.State = _settings.DeleteAfterUpload.HasFlag(DeleteFiles.Ai) ? NSCellStateValue.On : NSCellStateValue.Off;
+            DeletePtrCheckBox.State = _settings.DeleteAfterUpload.HasFlag(DeleteFiles.PTR) ? NSCellStateValue.On : NSCellStateValue.Off;
+            DeleteBrawlCheckBox.State = _settings.DeleteAfterUpload.HasFlag(DeleteFiles.Brawl) ? NSCellStateValue.On : NSCellStateValue.Off;
+            DeleteCustomCheckBox.State = _settings.DeleteAfterUpload.HasFlag(DeleteFiles.Custom) ? NSCellStateValue.On : NSCellStateValue.Off;
+            DeleteHeroLeagueCheckBox.State = _settings.DeleteAfterUpload.HasFlag(DeleteFiles.HeroLeague) ? NSCellStateValue.On : NSCellStateValue.Off;
+            DeleteQuickMatchCheckBox.State = _settings.DeleteAfterUpload.HasFlag(DeleteFiles.QuickMatch) ? NSCellStateValue.On : NSCellStateValue.Off;
+            DeleteTeamLeagueCheckBox.State = _settings.DeleteAfterUpload.HasFlag(DeleteFiles.TeamLeague) ? NSCellStateValue.On : NSCellStateValue.Off;
+            DeleteUnrakedDraftCheckBox.State = _settings.DeleteAfterUpload.HasFlag(DeleteFiles.UnrankedDraft) ? NSCellStateValue.On : NSCellStateValue.Off;
+        }
+
+        partial void DeleteAi(NSObject sender)
+        {
+            HandleFlag(sender, DeleteFiles.Ai);
+        }
+
+        partial void DeleteBrawl(NSObject sender)
+        {
+            HandleFlag(sender, DeleteFiles.Brawl);
+        }
+
+        partial void DeletePtr(NSObject sender)
+        {
+            HandleFlag(sender, DeleteFiles.PTR);
+        }
+
+        partial void DeleteQuickMatch(NSObject sender)
+        {
+            HandleFlag(sender, DeleteFiles.QuickMatch);
+        }
+
+        partial void DeleteTeamLeague(NSObject sender)
+        {
+            HandleFlag(sender, DeleteFiles.TeamLeague);
+        }
+
+        partial void DeleteCustom(NSObject sender)
+        {
+            HandleFlag(sender, DeleteFiles.Custom);
+        }
+
+        partial void DeleteUnrankedDraft(NSObject sender)
+        {
+            HandleFlag(sender, DeleteFiles.UnrankedDraft);
+        }
+
+        partial void DeleteHeroLeague(NSObject sender)
+        {
+            HandleFlag(sender, DeleteFiles.HeroLeague);
+        }
+
+        partial void MinimizeToTray(NSObject sender)
+        {
+            var state = ((NSButton)sender).State;
+            if (state == NSCellStateValue.On)
+            {
+                _settings.MinimizeToTray  = true;
+            }
+            else
+            {
+                _settings.MinimizeToTray = false;
+            }
+        }
+
+        partial void StartWithMac(NSObject sender)
+        {
+            var state = ((NSButton)sender).State;
+            if (state == NSCellStateValue.On)
+            {
+                _settings.StartWithSystem = true;
+            }
+            else
+            {
+                _settings.StartWithSystem = false;
+            }
+        }
+
+        partial void UploadToHotsLogs(NSObject sender)
+        {
+            var state = ((NSButton)sender).State;
+            if (state == NSCellStateValue.On)
+            {
+                _settings.UploadToHotsLogs = true;
+            }
+            else
+            {
+                _settings.UploadToHotsLogs = false;
+            }
+
+            App.Manager.UploadToHotslogs = _settings.UploadToHotsLogs;
+        }
+
+        private void HandleFlag(NSObject sender, DeleteFiles flag)
+        {
+            var state = ((NSButton)sender).State;
+            if (state == NSCellStateValue.On)
+            {
+                _settings.DeleteAfterUpload |= flag;
+            }
+            else
+            {
+                _settings.DeleteAfterUpload &= ~flag;
+            }
+
+            App.Manager.DeleteAfterUpload = _settings.DeleteAfterUpload;
+        }
+    }
 }

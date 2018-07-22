@@ -710,6 +710,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="DeletePtr:" target="cJK-Tc-Vho" id="WBB-VM-bKP"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2HE-bI-oy9">
                                         <rect key="frame" x="18" y="138" width="35" height="18"/>
@@ -718,6 +721,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="DeleteAi:" target="cJK-Tc-Vho" id="fWe-60-AIX"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gjo-Ah-EC4">
                                         <rect key="frame" x="18" y="118" width="69" height="18"/>
@@ -726,6 +732,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="DeleteCustom:" target="cJK-Tc-Vho" id="FRy-Oi-plm"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="We6-8E-OaF">
                                         <rect key="frame" x="18" y="98" width="56" height="18"/>
@@ -734,6 +743,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="DeleteBrawl:" target="cJK-Tc-Vho" id="gqW-LD-y0L"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2YN-NK-OUX">
                                         <rect key="frame" x="18" y="78" width="99" height="18"/>
@@ -742,6 +754,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="DeleteQuickMatch:" target="cJK-Tc-Vho" id="aQ8-gl-tYB"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DYO-1i-zeY">
                                         <rect key="frame" x="18" y="58" width="114" height="18"/>
@@ -750,6 +765,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="DeleteUnrankedDraft:" target="cJK-Tc-Vho" id="DB3-Iv-14c"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Sl-mq-3Lk">
                                         <rect key="frame" x="18" y="38" width="99" height="18"/>
@@ -758,6 +776,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="DeleteHeroLeague:" target="cJK-Tc-Vho" id="Go9-09-AYr"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tOM-Qx-vdl">
                                         <rect key="frame" x="18" y="18" width="103" height="18"/>
@@ -766,6 +787,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="DeleteTeamLeague:" target="cJK-Tc-Vho" id="ulr-nk-YDl"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </customView>
@@ -789,6 +813,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="UploadToHotsLogs:" target="cJK-Tc-Vho" id="4cu-kp-Xub"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5e-sI-Lx9">
                                         <rect key="frame" x="18" y="190" width="111" height="18"/>
@@ -797,6 +824,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="StartWithMac:" target="cJK-Tc-Vho" id="Whf-IB-g1z"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s97-Hy-IsH">
                                         <rect key="frame" x="18" y="170" width="119" height="18"/>
@@ -805,6 +835,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="MinimizeToTray:" target="cJK-Tc-Vho" id="oTA-x2-QWT"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X1W-Tw-MYd">
                                         <rect key="frame" x="14" y="131" width="194" height="32"/>
@@ -813,11 +846,29 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="ShowLog:" target="cJK-Tc-Vho" id="Fno-Xq-hzm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </customView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="DeleteAiCheckBox" destination="2HE-bI-oy9" id="Gy5-La-BUB"/>
+                        <outlet property="DeleteBrawlCheckBox" destination="We6-8E-OaF" id="ySm-id-fJl"/>
+                        <outlet property="DeleteCustomCheckBox" destination="gjo-Ah-EC4" id="zMn-dG-lkg"/>
+                        <outlet property="DeleteHeroLeagueCheckBox" destination="9Sl-mq-3Lk" id="r0T-V6-AhQ"/>
+                        <outlet property="DeletePtrCheckBox" destination="iqI-tC-Tah" id="ena-QW-BZL"/>
+                        <outlet property="DeleteQuickMatch" destination="2YN-NK-OUX" id="UPX-jW-LB8"/>
+                        <outlet property="DeleteQuickMatchCheckBox" destination="2YN-NK-OUX" id="SEE-Jo-WYB"/>
+                        <outlet property="DeleteTeamLeagueCheckBox" destination="tOM-Qx-vdl" id="VGl-U1-ATo"/>
+                        <outlet property="DeleteUnrakedDraftCheckBox" destination="DYO-1i-zeY" id="Whe-WX-Y2J"/>
+                        <outlet property="MinimizeToTrayCheckBox" destination="s97-Hy-IsH" id="T1F-1a-gQP"/>
+                        <outlet property="StartWithMac" destination="h5e-sI-Lx9" id="amY-0i-dV0"/>
+                        <outlet property="StartWithMacCheckBox" destination="h5e-sI-Lx9" id="NRC-ni-daw"/>
+                        <outlet property="UploadToHotsLogsCheckBox" destination="UQf-9d-MtL" id="Fyg-66-pbe"/>
+                    </connections>
                 </viewController>
                 <customObject id="J5A-w7-KM3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
