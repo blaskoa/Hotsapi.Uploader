@@ -28,6 +28,7 @@ namespace Hotsapi.Uploader.Mac
             ReplaysTable.DataSource = source;
             ReplaysTable.Delegate = new ReplayTableDelegate(source);
             HandleAggregates(manager.Aggregates);
+            StatusLabel.StringValue = manager.Status;
             // Do any additional setup after loading the view.
         }
 
