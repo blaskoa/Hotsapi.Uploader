@@ -5,6 +5,7 @@ using System;
 using Foundation;
 using AppKit;
 using Hotsapi.Uploader.Common;
+using System.IO;
 
 namespace Hotsapi.Uploader.Mac
 {
@@ -132,6 +133,11 @@ namespace Hotsapi.Uploader.Mac
             }
 
             App.Manager.UploadToHotslogs = _settings.UploadToHotsLogs;
+        }
+
+        partial void ShowLog(NSObject sender)
+        {
+            NSWorkspace.SharedWorkspace.OpenFile(Path.Combine(AppDelegate.SettingsDir, "logs"));
         }
 
         private void HandleFlag(NSObject sender, DeleteFiles flag)

@@ -3,12 +3,15 @@ using System.IO;
 using AppKit;
 using Foundation;
 using Hotsapi.Uploader.Common;
+using NLog;
+using NLog.Config;
 
 namespace Hotsapi.Uploader.Mac
 {
     [Register("AppDelegate")]
     public class AppDelegate : NSApplicationDelegate
     {
+        private static Logger _log = LogManager.GetCurrentClassLogger();
         public Manager Manager
         {
             get;
@@ -25,6 +28,8 @@ namespace Hotsapi.Uploader.Mac
 
         public AppDelegate()
         {
+
+            LogManager.Configuration = new XmlLoggingConfiguration("NLog.config");
             Manager = new Manager(new ReplayStorage(Path.Combine(SettingsDir, "replays.xml")));
             // Enable collection modification from any thread
             Settings = new Settings(NSUserDefaults.StandardUserDefaults);
