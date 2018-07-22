@@ -11,7 +11,7 @@ namespace Hotsapi.Uploader.Common
     public class Monitor
     {
         private static Logger _log = LogManager.GetCurrentClassLogger();
-        protected readonly string ProfilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"Heroes of the Storm\Accounts");
+        protected readonly string ProfilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),"Heroes of the Storm", "Accounts");
         protected FileSystemWatcher _watcher;
 
         /// <summary>
