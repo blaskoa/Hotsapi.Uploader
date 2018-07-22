@@ -19,20 +19,20 @@ namespace Hotsapi.Uploader.Mac
 
         public AppDelegate()
         {
-        }
-
-        public override void DidFinishLaunching(NSNotification notification)
-        {
-            // Insert code here to initialize your application
-
-            Manager = new Manager(new ReplayStorage($@"{SettingsDir}\replays.xml"));
+            Manager = new Manager(new ReplayStorage(Path.Combine(SettingsDir, "replays.xml")));
             // Enable collection modification from any thread
 
             Manager.UploadToHotslogs = false;
             Manager.DeleteAfterUpload = DeleteFiles.None;
 
-            Manager.Start();
         }
+        public override void DidFinishLaunching(NSNotification notification)
+        {
+            // Insert code here to initialize your application
+
+        }
+
+
 
         public override void WillTerminate(NSNotification notification)
         {

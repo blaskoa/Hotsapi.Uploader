@@ -38,6 +38,8 @@ namespace Hotsapi.Uploader.Common
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public event EventHandler ReplayProcessed;
+
         private string _status = "";
         /// <summary>
         /// Current uploader status
@@ -151,6 +153,7 @@ namespace Hotsapi.Uploader.Common
             _aggregates = Files.GroupBy(x => x.UploadStatus).ToDictionary(x => x.Key, x => x.Count());
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Aggregates)));
+            ReplayProcessed?.Invoke(this, new EventArgs());
         }
 
         private void SaveReplayList()
